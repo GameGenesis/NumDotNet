@@ -33,16 +33,30 @@ namespace NumDotNet
         /// <summary> Returns the length of this vector (Read Only). </summary>
         public float magnitude => (float)Math.Sqrt(sqrMagnitude);
         /// <summary> Returns this vector with a magnitude of 1 (Read Only). </summary>
-        public Vector2 normalized => magnitude != 0 ? new Vector2(x / magnitude, y / magnitude) : new Vector2(0, 0);
+        public Vector2 normalized => magnitude > Mathf.Epsilon ? new Vector2(x / magnitude, y / magnitude) : new Vector2(0, 0);
 
         /// <summary> Access the x or y component using [0] or [1] respectively. </summary>
         public float this[int index]
         {
             get
             {
-                if (index == 0) return x;
-                else if (index == 1) return y;
-                else throw new IndexOutOfRangeException();
+                switch (index)
+                {
+                    case 0: return x;
+                    case 1: return y;
+                    default:
+                        throw new IndexOutOfRangeException("Invalid Vector2 index.");
+                }
+            }
+            set
+            {
+                switch (index)
+                {
+                    case 0: x = value; break;
+                    case 1: y = value; break;
+                    default:
+                        throw new IndexOutOfRangeException("Invalid Vector2 index.");
+                }
             }
         }
 
@@ -66,7 +80,7 @@ namespace NumDotNet
         /// <summary> Makes this vector have a magnitude of 1. </summary>
         public void Normalize()
         {
-            if (magnitude != 0)
+            if (magnitude > Mathf.Epsilon)
                 Set(x / magnitude, y / magnitude);
             else
                 Set(0, 0);
@@ -108,12 +122,6 @@ namespace NumDotNet
         public static float Angle(Vector2 from, Vector2 to)
         {
             return (float)Math.Acos((from.x * to.x + from.y * to.y) / (from.magnitude * to.magnitude));
-        }
-
-        /// <summary> Returns the signed angle in degrees between from and to. </summary>
-        public static float SignedAngle(Vector2 from, Vector2 to)
-        {
-            return 0;
         }
 
         /// <summary> Returns a copy of vector with its magnitude clamped to maxLength. </summary>
