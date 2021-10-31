@@ -59,6 +59,9 @@ namespace NumDotNet
         /// <summary> Returns true if two vectors are not equal. </summary>
         public static bool operator !=(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) > 0.00001f || Math.Abs(a.y - b.y) > 0.00001f;
 
+        /// <summary> Constructs a new vector with deafult Vector2(0, 0) points. </summary>
+        public Vector2() : this(0, 0) { }
+
         /// <summary> Constructs a new vector with given x, y components. </summary>
         public Vector2(float x, float y)
         {
@@ -81,12 +84,9 @@ namespace NumDotNet
         }
 
         /// <summary> Returns true if the given vector is exactly equal to this vector. </summary>
-        public bool Equals(Vector2 other)
+        public override bool Equals(object other)
         {
-            if (x == other.x && y == other.y)
-                return true;
-            else
-                return false;
+            return this == (Vector2)other;
         }
 
         /// <summary> Returns a formatted string for this vector. </summary>
