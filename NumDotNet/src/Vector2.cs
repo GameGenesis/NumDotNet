@@ -4,25 +4,6 @@ namespace NumDotNet
 {
     public class Vector2
     {
-        /// <summary> Shorthand for writing Vector2(0, 0). </summary>
-        public static Vector2 zero => new Vector2(0, 0);
-        /// <summary> Shorthand for writing Vector2(1, 1). </summary>
-        public static Vector2 one => new Vector2(1, 1);
-
-        /// <summary> Shorthand for writing Vector2(0, 1). </summary>
-        public static Vector2 up => new Vector2(0, 1);
-        /// <summary> Shorthand for writing Vector2(0, -1). </summary>
-        public static Vector2 down => new Vector2(0, -1);
-        /// <summary> Shorthand for writing Vector2(-1, 0). </summary>
-        public static Vector2 left => new Vector2(-1, 0);
-        /// <summary> Shorthand for writing Vector2(1, 0). </summary>
-        public static Vector2 right => new Vector2(1, 0);
-
-        /// <summary> Shorthand for writing Vector2(float.NegativeInfinity, float.NegativeInfinity). </summary>
-        public static Vector2 negativeInfinity => new Vector2(float.NegativeInfinity, float.PositiveInfinity);
-        /// <summary> Shorthand for writing Vector2(float.PositiveInfinity, float.PositiveInfinity). </summary>
-        public static Vector2 positiveInfinity => new Vector2(float.PositiveInfinity, float.PositiveInfinity);
-
         /// <summary> X component of the vector. </summary>
         public float x { get; set; }
         /// <summary> Y component of the vector. </summary>
@@ -34,6 +15,8 @@ namespace NumDotNet
         public float magnitude => (float)Math.Sqrt(sqrMagnitude);
         /// <summary> Returns this vector with a magnitude of 1 (Read Only). </summary>
         public Vector2 normalized => magnitude > Mathf.Epsilon ? new Vector2(x / magnitude, y / magnitude) : new Vector2(0, 0);
+
+        public const float kEpsilon = 0.00001f;
 
         /// <summary> Access the x or y component using [0] or [1] respectively. </summary>
         public float this[int index]
@@ -80,7 +63,7 @@ namespace NumDotNet
         /// <summary> Makes this vector have a magnitude of 1. </summary>
         public void Normalize()
         {
-            if (magnitude > Mathf.Epsilon)
+            if (magnitude > kEpsilon)
                 Set(x / magnitude, y / magnitude);
             else
                 Set(0, 0);
@@ -142,6 +125,25 @@ namespace NumDotNet
             return new Vector2(Math.Min(a.x, b.x), Math.Min(a.y, b.y));
         }
 
+        /// <summary> Shorthand for writing Vector2(0, 0). </summary>
+        public static Vector2 zero => new Vector2(0, 0);
+        /// <summary> Shorthand for writing Vector2(1, 1). </summary>
+        public static Vector2 one => new Vector2(1, 1);
+
+        /// <summary> Shorthand for writing Vector2(0, 1). </summary>
+        public static Vector2 up => new Vector2(0, 1);
+        /// <summary> Shorthand for writing Vector2(0, -1). </summary>
+        public static Vector2 down => new Vector2(0, -1);
+        /// <summary> Shorthand for writing Vector2(-1, 0). </summary>
+        public static Vector2 left => new Vector2(-1, 0);
+        /// <summary> Shorthand for writing Vector2(1, 0). </summary>
+        public static Vector2 right => new Vector2(1, 0);
+
+        /// <summary> Shorthand for writing Vector2(float.NegativeInfinity, float.NegativeInfinity). </summary>
+        public static Vector2 negativeInfinity => new Vector2(float.NegativeInfinity, float.PositiveInfinity);
+        /// <summary> Shorthand for writing Vector2(float.PositiveInfinity, float.PositiveInfinity). </summary>
+        public static Vector2 positiveInfinity => new Vector2(float.PositiveInfinity, float.PositiveInfinity);
+
         /// <summary> Adds two Vectors. </summary>
         public static Vector2 operator +(Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);
         /// <summary> Subtracts one vector from another. </summary>
@@ -151,8 +153,12 @@ namespace NumDotNet
         /// <summary> Divides a vector by a number. </summary>
         public static Vector2 operator /(Vector2 a, float d) => d != 0 ? new Vector2(a.x / d, a.y / d) : throw new DivideByZeroException();
         /// <summary> Returns true if two vectors are approximately equal. </summary>
-        public static bool operator ==(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) <= 0.00001f && Math.Abs(a.y - b.y) <= 0.00001f;
+        public static bool operator ==(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) <= kEpsilon && Math.Abs(a.y - b.y) <= kEpsilon;
         /// <summary> Returns true if two vectors are not equal. </summary>
-        public static bool operator !=(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) > 0.00001f || Math.Abs(a.y - b.y) > 0.00001f;
+        public static bool operator !=(Vector2 a, Vector2 b) => !(a == b);
+        /// <summary> Converts a Vector3 to a Vector2. </summary>
+        public static implicit operator Vector2(Vector3 v) => new Vector2(v.x, v.y);
+        /// <summary> Converts a Vector2 to a Vector3. </summary>
+        public static implicit operator Vector3(Vector2 v) => new Vector3(v.x, v.y, 0);
     }
 }
