@@ -22,6 +22,14 @@ namespace ConsoleTest
 
             Console.WriteLine(v2.ToString());
             Console.WriteLine(v2[1]);
+
+            v2.Set(8, 8);
+            v2 /= 4;
+            v1.Normalize();
+
+            Console.WriteLine(v2);
+            Console.WriteLine(v1.normalized);
+
             Console.ReadKey();
         }
     }

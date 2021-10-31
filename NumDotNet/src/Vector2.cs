@@ -33,7 +33,7 @@ namespace NumDotNet
         /// <summary> Returns the length of this vector (Read Only). </summary>
         public float magnitude => (float)Math.Sqrt(sqrMagnitude);
         /// <summary> Returns this vector with a magnitude of 1 (Read Only). </summary>
-        public Vector2 normalized => this / magnitude;
+        public Vector2 normalized => magnitude != 0 ? new Vector2(x / magnitude, y / magnitude) : new Vector2(0, 0);
 
         /// <summary> Access the x or y component using [0] or [1] respectively. </summary>
         public float this[int index]
@@ -103,6 +103,6 @@ namespace NumDotNet
         public override int GetHashCode() => Tuple.Create(x, y).GetHashCode();
 
         /// <summary> Returns a formatted string for this vector. </summary>
-        public override string ToString() => String.Format("{0}, {1}", x, y);
+        public override string ToString() => String.Format("({0}, {1})", x, y);
     }
 }
