@@ -130,6 +130,18 @@ namespace NumDotNet
             return zero;
         }
 
+        /// <summary> Returns a vector that is made from the largest components of two vectors. </summary>
+        public static Vector2 Max(Vector2 a, Vector2 b)
+        {
+            return new Vector2(Math.Max(a.x, b.x), Math.Max(a.y, b.y));
+        }
+
+        /// <summary> Returns a vector that is made from the smallest components of two vectors. </summary>
+        public static Vector2 Min(Vector2 a, Vector2 b)
+        {
+            return new Vector2(Math.Min(a.x, b.x), Math.Min(a.y, b.y));
+        }
+
         /// <summary> Adds two Vectors. </summary>
         public static Vector2 operator +(Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);
         /// <summary> Subtracts one vector from another. </summary>
