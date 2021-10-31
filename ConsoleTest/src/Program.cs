@@ -34,6 +34,10 @@ namespace ConsoleTest
             Console.WriteLine(angle);
 
             Console.WriteLine(Mathf.PI);
+            Console.WriteLine(Mathf.Epsilon);
+
+            Console.WriteLine(Mathf.Approximately(1.000001f, 10.0f / 10.0f));
+            Console.WriteLine($"{Mathf.CeilingToInt(-10f)}, {Mathf.CeilingToInt(-10.7f)}, {Mathf.CeilingToInt(5f)}, {Mathf.CeilingToInt(5.3f)}");
 
             Console.ReadKey();
         }
