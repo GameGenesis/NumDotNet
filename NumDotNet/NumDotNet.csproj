@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -18,7 +18,7 @@ Added a Console Test Project</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Users\Rayan\Dropbox\PC\Documents\Dev\Programming Projects\NumDotNet\NuGet\</OutputPath>
+    <OutputPath>C:\Users\Rayan\Dropbox\PC\Documents\Dev\Programming Projects\NumDotNet\config\</OutputPath>
     <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
