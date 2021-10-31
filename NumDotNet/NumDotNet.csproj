@@ -2,6 +2,36 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.5</Version>
+    <Authors>Game Genesis</Authors>
+    <Description>A Simple C# .NET Standard Math Library</Description>
+    <Copyright>Copyright (c) 2021 Game Genesis</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/GameGenesis/NumDotNet</RepositoryUrl>
+    <NeutralLanguage>en-CA</NeutralLanguage>
+    <PackageTags>math, vectors</PackageTags>
+    <PackageReleaseNotes>Added a Vector2 Class
+Added a Console Test Project</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>C:\Users\Rayan\Dropbox\PC\Documents\Dev\Programming Projects\NumDotNet\NuGet\</OutputPath>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>C:\Users\Rayan\Dropbox\PC\Documents\Dev\Programming Projects\NumDotNet\NuGet\</OutputPath>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

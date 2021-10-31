@@ -72,16 +72,12 @@ namespace NumDotNet
         /// <summary> Set x and y components of an existing Vector2. </summary>
         public void Set(float newX, float newY)
         {
-            this.x = newX;
-            this.y = newY;
+            x = newX;
+            y = newY;
         }
 
         /// <summary> Makes this vector have a magnitude of 1. </summary>
-        public void Normalize()
-        {
-            x /= magnitude;
-            y /= magnitude;
-        }
+        public void Normalize() => Set(x / magnitude, y / magnitude);
 
         /// <summary> Returns true if the given vector is exactly equal to this vector. </summary>
         public override bool Equals(Object obj)
@@ -98,15 +94,9 @@ namespace NumDotNet
             }
         }
 
-        public override int GetHashCode()
-        {
-            return Tuple.Create(x, y).GetHashCode();
-        }
+        public override int GetHashCode() => Tuple.Create(x, y).GetHashCode();
 
         /// <summary> Returns a formatted string for this vector. </summary>
-        public override string ToString()
-        {
-            return String.Format("{0}, {1}", x, y);
-        }
+        public override string ToString() => String.Format("{0}, {1}", x, y);
     }
 }
