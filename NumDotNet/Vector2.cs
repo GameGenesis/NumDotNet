@@ -84,9 +84,23 @@ namespace NumDotNet
         }
 
         /// <summary> Returns true if the given vector is exactly equal to this vector. </summary>
-        public override bool Equals(object other)
+        public override bool Equals(Object obj)
         {
-            return this == (Vector2)other;
+            //Check for null and compare run-time types.
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Vector2 v = (Vector2)obj;
+                return (x == v.x) && (y == v.y);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return Tuple.Create(x, y).GetHashCode();
         }
 
         /// <summary> Returns a formatted string for this vector. </summary>
