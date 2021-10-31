@@ -46,19 +46,6 @@ namespace NumDotNet
             }
         }
 
-        /// <summary> Adds two Vectors. </summary>
-        public static Vector2 operator +(Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);
-        /// <summary> Subtracts one vector from another. </summary>
-        public static Vector2 operator -(Vector2 a, Vector2 b) => new Vector2(a.x - b.x, a.y - b.y);
-        /// <summary> Multiplies a vector by a number. </summary>
-        public static Vector2 operator *(Vector2 a, float d) => new Vector2(a.x * d, a.y * d);
-        /// <summary> Divides a vector by a number. </summary>
-        public static Vector2 operator /(Vector2 a, float d) => d != 0 ? new Vector2(a.x / d, a.y / d) : throw new DivideByZeroException();
-        /// <summary> Returns true if two vectors are approximately equal. </summary>
-        public static bool operator ==(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) <= 0.00001f && Math.Abs(a.y - b.y) <= 0.00001f;
-        /// <summary> Returns true if two vectors are not equal. </summary>
-        public static bool operator !=(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) > 0.00001f || Math.Abs(a.y - b.y) > 0.00001f;
-
         /// <summary> Constructs a new vector with deafult Vector2(0, 0) points. </summary>
         public Vector2() : this(0, 0) { }
 
@@ -103,6 +90,49 @@ namespace NumDotNet
         public override int GetHashCode() => Tuple.Create(x, y).GetHashCode();
 
         /// <summary> Returns a formatted string for this vector. </summary>
-        public override string ToString() => String.Format("({0}, {1})", x, y);
+        public override string ToString() => $"({x}, {y})";
+
+        /// <summary> Returns the distance between a and b. </summary>
+        public static float Distance(Vector2 a, Vector2 b)
+        {
+            return (a - b).magnitude;
+        }
+
+        /// <summary> Dot Product of two vectors. </summary>
+        public static float Dot(Vector2 a, Vector2 b)
+        {
+            return a.x * b.x + a.y * b.y;
+        }
+
+        /// <summary> Returns the unsigned angle in degrees between from and to. </summary>
+        public static float Angle(Vector2 from, Vector2 to)
+        {
+            return (float)Math.Acos((from.x * to.x + from.y * to.y) / (from.magnitude * to.magnitude));
+        }
+
+        /// <summary> Returns the signed angle in degrees between from and to. </summary>
+        public static float SignedAngle(Vector2 from, Vector2 to)
+        {
+            return 0;
+        }
+
+        /// <summary> Returns a copy of vector with its magnitude clamped to maxLength. </summary>
+        public static Vector2 ClampMagnitude(Vector2 vector, float maxLength)
+        {
+            return zero;
+        }
+
+        /// <summary> Adds two Vectors. </summary>
+        public static Vector2 operator +(Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);
+        /// <summary> Subtracts one vector from another. </summary>
+        public static Vector2 operator -(Vector2 a, Vector2 b) => new Vector2(a.x - b.x, a.y - b.y);
+        /// <summary> Multiplies a vector by a number. </summary>
+        public static Vector2 operator *(Vector2 a, float d) => new Vector2(a.x * d, a.y * d);
+        /// <summary> Divides a vector by a number. </summary>
+        public static Vector2 operator /(Vector2 a, float d) => d != 0 ? new Vector2(a.x / d, a.y / d) : throw new DivideByZeroException();
+        /// <summary> Returns true if two vectors are approximately equal. </summary>
+        public static bool operator ==(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) <= 0.00001f && Math.Abs(a.y - b.y) <= 0.00001f;
+        /// <summary> Returns true if two vectors are not equal. </summary>
+        public static bool operator !=(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) > 0.00001f || Math.Abs(a.y - b.y) > 0.00001f;
     }
 }

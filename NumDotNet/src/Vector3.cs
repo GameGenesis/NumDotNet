@@ -2,7 +2,7 @@
 
 namespace NumDotNet
 {
-    class Vector3
+    public class Vector3
     {
 
     }

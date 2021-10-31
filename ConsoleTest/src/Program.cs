@@ -30,6 +30,9 @@ namespace ConsoleTest
             Console.WriteLine(v2);
             Console.WriteLine(v1.normalized);
 
+            float angle = Vector2.Angle(new Vector2(2, 3), new Vector2(-5, 4));
+            Console.WriteLine(angle);
+
             Console.ReadKey();
         }
     }
