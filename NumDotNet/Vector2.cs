@@ -77,7 +77,13 @@ namespace NumDotNet
         }
 
         /// <summary> Makes this vector have a magnitude of 1. </summary>
-        public void Normalize() => Set(x / magnitude, y / magnitude);
+        public void Normalize()
+        {
+            if (magnitude != 0)
+                Set(x / magnitude, y / magnitude);
+            else
+                Set(0, 0);
+        }
 
         /// <summary> Returns true if the given vector is exactly equal to this vector. </summary>
         public override bool Equals(Object obj)

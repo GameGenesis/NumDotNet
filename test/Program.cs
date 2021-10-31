@@ -21,7 +21,8 @@ namespace ConsoleTest
             v2.Normalize();
 
             Console.WriteLine(v2.ToString());
-            Console.WriteLine(v2[2]);
+            Console.WriteLine(v2[1]);
+            Console.ReadKey();
         }
     }
 }
