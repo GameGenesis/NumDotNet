@@ -43,7 +43,7 @@ namespace NumDotNet
             }
         }
 
-        /// <summary> Constructs a new vector with deafult Vector2(0, 0) points. </summary>
+        /// <summary> Constructs a new vector with default Vector2(0, 0) points. </summary>
         public Vector2() : this(0, 0) { }
 
         /// <summary> Constructs a new vector with given x, y components. </summary>
@@ -101,10 +101,10 @@ namespace NumDotNet
             return a.x * b.x + a.y * b.y;
         }
 
-        /// <summary> Returns the unsigned angle in degrees between from and to. </summary>
-        public static float Angle(Vector2 from, Vector2 to)
+        /// <summary> Returns the unsigned angle in degrees between a and b. </summary>
+        public static float Angle(Vector2 a, Vector2 b)
         {
-            return (float)Math.Acos((from.x * to.x + from.y * to.y) / (from.magnitude * to.magnitude));
+            return (float)Math.Acos((a.x * b.x + a.y * b.y) / (a.magnitude * b.magnitude));
         }
 
         /// <summary> Returns a copy of vector with its magnitude clamped to maxLength. </summary>
