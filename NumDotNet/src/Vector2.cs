@@ -120,6 +120,22 @@ namespace NumDotNet
             return vector;
         }
 
+        /// <summary>
+        /// Linearly interpolates between vectors a and b by t.
+        /// The value of t is clamped between 0 and 1.
+        /// </summary>
+        public static Vector2 Lerp(Vector2 a, Vector2 b, float t)
+        {
+            t = Mathf.Clamp01(t);
+            return LerpUnclamped(a, b, t);
+        }
+
+        /// <summary> Linearly interpolates between vectors a and b by t. </summary>
+        public static Vector2 LerpUnclamped(Vector2 a, Vector2 b, float t)
+        {
+            return new Vector2(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
+        }
+
         /// <summary> Returns a vector that is made from the largest components of two vectors. </summary>
         public static Vector2 Max(Vector2 a, Vector2 b)
         {
@@ -130,6 +146,12 @@ namespace NumDotNet
         public static Vector2 Min(Vector2 a, Vector2 b)
         {
             return new Vector2(Math.Min(a.x, b.x), Math.Min(a.y, b.y));
+        }
+
+        /// <summary> Multiplies two vectors component-wise. </summary>
+        public static Vector2 Scale(Vector2 a, Vector2 b)
+        {
+            return a * b;
         }
 
         /// <summary> Shorthand for writing Vector2(0, 0). </summary>
