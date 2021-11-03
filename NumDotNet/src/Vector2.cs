@@ -157,8 +157,12 @@ namespace NumDotNet
         public static Vector2 operator -(Vector2 a, Vector2 b) => new Vector2(a.x - b.x, a.y - b.y);
         /// <summary> Multiplies a vector by a number. </summary>
         public static Vector2 operator *(Vector2 a, float d) => new Vector2(a.x * d, a.y * d);
+        /// <summary> Multiplies a vector by another vector. </summary>
+        public static Vector2 operator *(Vector2 a, Vector2 b) => new Vector2(a.x * b.x, a.y * b.y);
         /// <summary> Divides a vector by a number. </summary>
         public static Vector2 operator /(Vector2 a, float d) => d != 0 ? new Vector2(a.x / d, a.y / d) : throw new DivideByZeroException();
+        /// <summary> Divides a vector by another vector. </summary>
+        public static Vector2 operator /(Vector2 a, Vector2 b) => b.x != 0 && b.y != 0 ? new Vector2(a.x / b.x, a.y / b.y) : throw new DivideByZeroException();
         /// <summary> Returns true if two vectors are approximately equal. </summary>
         public static bool operator ==(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) <= kEpsilon && Math.Abs(a.y - b.y) <= kEpsilon;
         /// <summary> Returns true if two vectors are not equal. </summary>
