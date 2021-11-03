@@ -177,8 +177,12 @@ namespace NumDotNet
         public static Vector2 operator +(Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);
         /// <summary> Subtracts one vector from another. </summary>
         public static Vector2 operator -(Vector2 a, Vector2 b) => new Vector2(a.x - b.x, a.y - b.y);
+        /// <summary> Negates a Vector. </summary>
+        public static Vector2 operator -(Vector2 a) => new Vector2(-a.x, -a.y);
         /// <summary> Multiplies a vector by a number. </summary>
         public static Vector2 operator *(Vector2 a, float d) => new Vector2(a.x * d, a.y * d);
+        /// <summary> Multiplies a vector by a number. </summary>
+        public static Vector2 operator *(float d, Vector2 a) => new Vector2(a.x * d, a.y * d);
         /// <summary> Multiplies a vector by another vector. </summary>
         public static Vector2 operator *(Vector2 a, Vector2 b) => new Vector2(a.x * b.x, a.y * b.y);
         /// <summary> Divides a vector by a number. </summary>
