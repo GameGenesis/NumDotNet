@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace NumDotNet
 {
@@ -84,10 +85,31 @@ namespace NumDotNet
             }
         }
 
-        public override int GetHashCode() => Tuple.Create(x, y).GetHashCode();
+        /// <summary>
+        /// Returns a hash code for the current object.
+        /// Allows a Vector2 to be used as a key in hash tables.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return x.GetHashCode() ^ (y.GetHashCode() << 2);
+        }
+
+        public override string ToString()
+        {
+            return ToString(null, CultureInfo.InvariantCulture.NumberFormat);
+        }
 
         /// <summary> Returns a formatted string for this vector. </summary>
-        public override string ToString() => $"({x}, {y})";
+        public string ToString(string format)
+        {
+            return ToString(format, CultureInfo.InvariantCulture.NumberFormat);
+        }
+
+        /// <summary> Returns a formatted string for this vector. </summary>
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return $"({x.ToString(format, formatProvider)}, {y.ToString(format, formatProvider)})";
+        }
 
         /// <summary> Returns the distance between a and b. </summary>
         public static float Distance(Vector2 a, Vector2 b)
