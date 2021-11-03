@@ -110,7 +110,14 @@ namespace NumDotNet
         /// <summary> Returns a copy of vector with its magnitude clamped to maxLength. </summary>
         public static Vector2 ClampMagnitude(Vector2 vector, float maxLength)
         {
-            return zero;
+            float sqrMagnitude = vector.sqrMagnitude;
+
+            if (sqrMagnitude > maxLength * maxLength)
+            {
+                float magnitude = (float)Math.Sqrt(sqrMagnitude);
+                return new Vector2((vector.x / magnitude) * maxLength, (vector.y / magnitude) * maxLength);
+            }
+            return vector;
         }
 
         /// <summary> Returns a vector that is made from the largest components of two vectors. </summary>
