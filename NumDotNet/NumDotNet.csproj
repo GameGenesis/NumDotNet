@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.5</Version>
+    <Version>0.2.12</Version>
     <Authors>Game Genesis</Authors>
     <Description>A Simple C# .NET Standard Math Library</Description>
     <Copyright>Copyright (c) 2021 Game Genesis</Copyright>
@@ -12,8 +12,9 @@
     <RepositoryUrl>https://github.com/GameGenesis/NumDotNet</RepositoryUrl>
     <NeutralLanguage>en-CA</NeutralLanguage>
     <PackageTags>math, vectors</PackageTags>
-    <PackageReleaseNotes>Added a Vector2 Class
-Added a Console Test Project</PackageReleaseNotes>
+    <PackageReleaseNotes>Added Vector2 methods
+Added Vector3 Class
+Added Mathf Class with helper functions</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
