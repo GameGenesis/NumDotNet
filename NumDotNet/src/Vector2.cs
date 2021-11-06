@@ -34,39 +34,39 @@ namespace NumDotNet
         public Vector2 normalized => magnitude > Mathf.Epsilon ? new Vector2(x / magnitude, y / magnitude) : new Vector2(0, 0);
 
         /// <summary>
-        /// Returns the number of components in this vector (Read Only).
+        /// Returns the vector angle (atan2(y, x)) in radians.
         /// </summary>
-        public int Count => 2;
-
-        /// <summary>
-        /// Returns the minimal component of this vector.
-        /// </summary>
-        public float MinElement => Math.Min(x, y);
-
-        /// <summary>
-        /// Returns the maximal component of this vector.
-        /// </summary>
-        public float MaxElement => Math.Max(x, y);
-
-        /// <summary>
-        /// Returns the sum of the vector components.
-        /// </summary>
-        public float Sum => (x + y);
+        public float angle => MathF.Atan2(y, x);
 
         /// <summary>
         /// Returns the one-norm of this vector.
         /// </summary>
-        public float Norm1 => (Math.Abs(x) + Math.Abs(y));
+        public float norm1 => (Math.Abs(x) + Math.Abs(y));
 
         /// <summary>
         /// Returns the max-norm of this vector.
         /// </summary>
-        public float NormMax => Math.Max(Math.Abs(x), Math.Abs(y));
+        public float normMax => Math.Max(Math.Abs(x), Math.Abs(y));
 
         /// <summary>
-        /// Returns the vector angle (atan2(y, x)) in radians.
+        /// Returns the sum of the vector components.
         /// </summary>
-        public float Angle => MathF.Atan2(y, x);
+        public float sum => (x + y);
+
+        /// <summary>
+        /// Returns the minimal component of this vector.
+        /// </summary>
+        public float minElement => Math.Min(x, y);
+
+        /// <summary>
+        /// Returns the maximal component of this vector.
+        /// </summary>
+        public float maxElement => Math.Max(x, y);
+
+        /// <summary>
+        /// Returns the number of components in this vector (Read Only).
+        /// </summary>
+        public int Count => 2;
 
         /// <summary>
         /// The smallest value that a float can have different from zero.
