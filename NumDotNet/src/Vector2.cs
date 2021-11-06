@@ -340,6 +340,16 @@ namespace NumDotNet
         public static Vector2 right => new Vector2(1, 0);
 
         /// <summary>
+        /// Shorthand for writing Vector2(float.MinValue, float.MinValue).
+        /// </summary>
+        public static Vector2 minValue => new Vector2(float.MinValue, float.MinValue);
+
+        /// <summary>
+        /// Shorthand for writing Vector2(float.MaxValue, float.MaxValue).
+        /// </summary>
+        public static Vector2 maxValue => new Vector2(float.MaxValue, float.MaxValue);
+
+        /// <summary>
         /// Shorthand for writing Vector2(float.NegativeInfinity, float.NegativeInfinity).
         /// </summary>
         public static Vector2 negativeInfinity => new Vector2(float.NegativeInfinity, float.PositiveInfinity);
