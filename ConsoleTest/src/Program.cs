@@ -55,6 +55,9 @@ namespace ConsoleTest
             v3 = new Vector2(fl3, 2);
             Console.WriteLine(v3);
 
+            float[] fl4 = (float[])new Vector2(0, 3);
+            Console.WriteLine(new Vector2(fl4));
+
             Console.ReadKey();
         }
     }

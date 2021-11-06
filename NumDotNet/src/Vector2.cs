@@ -242,5 +242,8 @@ namespace NumDotNet
         public static implicit operator Vector2(Vector3 v) => new Vector2(v.x, v.y);
         /// <summary> Converts a Vector2 to a Vector3. </summary>
         public static implicit operator Vector3(Vector2 v) => new Vector3(v.x, v.y, 0);
+
+        /// <summary> Converts a Vector2 to a float array (explicit). </summary>
+        public static explicit operator float[](Vector2 v) => new float[] { v.x, v.y };
     }
 }
