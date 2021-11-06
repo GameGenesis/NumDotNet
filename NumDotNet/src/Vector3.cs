@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NumDotNet
 {
@@ -21,6 +23,33 @@ namespace NumDotNet
             this.y = y;
             this.z = z;
         }
+
+        /// <summary> Constructs a new vector with given Vector2 x, y values. </summary>
+        public Vector3(Vector2 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = 0;
+        }
+
+        /// <summary> Constructs a new vector with given Vector3 x, y, z values. </summary>
+        public Vector3(Vector3 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+        }
+
+        /// <summary> Constructs a new vector with given array values (superfluous values are ignored, missing values are zero-filled). </summary>
+        public Vector3(float[] v, int startIndex = 0)
+        {
+            this.x = v.Length < 1 + startIndex ? 0f : v[startIndex];
+            this.y = v.Length < 2 + startIndex ? 0f : v[startIndex + 1];
+            this.z = v.Length < 3 + startIndex ? 0f : v[startIndex + 2];
+        }
+
+        /// <summary> Constructs a new vector with given IEnumerable values (superfluous values are ignored, missing values are zero-filled). </summary>
+        public Vector3(IEnumerable<float> v, int startIndex = 0) : this(v.ToArray(), startIndex) { }
 
         /// <summary> Shorthand for writing Vector3(0, 0, -1). </summary>
         public static Vector3 back => new Vector3(0, 0, -1);
