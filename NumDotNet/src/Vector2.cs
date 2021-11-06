@@ -8,24 +8,44 @@ namespace NumDotNet
 {
     public struct Vector2 : IReadOnlyList<float>, IEquatable<Vector2>, IFormattable
     {
-        /// <summary> X component of the vector. </summary>
+        /// <summary>
+        /// X component of the vector.
+        /// </summary>
         public float x { get; set; }
-        /// <summary> Y component of the vector. </summary>
+
+        /// <summary>
+        /// Y component of the vector.
+        /// </summary>
         public float y { get; set; }
-        
-        /// <summary> Returns the squared length of this vector (Read Only). </summary>
+
+        /// <summary>
+        /// Returns the squared length of this vector (Read Only).
+        /// </summary>
         public float sqrMagnitude => x * x + y * y;
-        /// <summary> Returns the length of this vector (Read Only). </summary>
+
+        /// <summary>
+        /// Returns the length of this vector (Read Only).
+        /// </summary>
         public float magnitude => (float)Math.Sqrt(sqrMagnitude);
-        /// <summary> Returns this vector with a magnitude of 1 (Read Only). </summary>
+
+        /// <summary>
+        /// Returns this vector with a magnitude of 1 (Read Only).
+        /// </summary>
         public Vector2 normalized => magnitude > Mathf.Epsilon ? new Vector2(x / magnitude, y / magnitude) : new Vector2(0, 0);
 
-        /// <summary> Returns the number of components in this vector (Read Only). </summary>
+        /// <summary>
+        /// Returns the number of components in this vector (Read Only).
+        /// </summary>
         public int Count => 2;
 
+        /// <summary>
+        /// The smallest value that a float can have different from zero.
+        /// </summary>
         public const float kEpsilon = 0.00001f;
 
-        /// <summary> Access the x or y component using [0] or [1] respectively. </summary>
+        /// <summary>
+        /// Access the x or y component using [0] or [1] respectively.
+        /// </summary>
         public float this[int index]
         {
             get
@@ -50,45 +70,59 @@ namespace NumDotNet
             }
         }
 
-        /// <summary> Constructs a new vector with given x, y values. </summary>
+        /// <summary>
+        /// Constructs a new vector with given x, y values.
+        /// </summary>
         public Vector2(float x, float y)
         {
             this.x = x;
             this.y = y;
         }
 
-        /// <summary> Constructs a new vector with given Vector2 x, y values. </summary>
+        /// <summary>
+        /// Constructs a new vector with given Vector2 x, y values.
+        /// </summary>
         public Vector2(Vector2 v)
         {
             this.x = v.x;
             this.y = v.y;
         }
 
-        /// <summary> Constructs a new vector with given Vector3 x, y values. </summary>
+        /// <summary>
+        /// Constructs a new vector with given Vector3 x, y values.
+        /// </summary>
         public Vector2(Vector3 v)
         {
             this.x = v.x;
             this.y = v.y;
         }
 
-        /// <summary> Constructs a new vector with given array values (superfluous values are ignored, missing values are zero-filled). </summary>
+        /// <summary>
+        /// Constructs a new vector with given array values (superfluous values are ignored, missing values are zero-filled).
+        /// </summary>
         public Vector2(float[] v, int startIndex = 0)
         {
             this.x = v.Length < 1 + startIndex ? 0f : v[startIndex];
             this.y = v.Length < 2 + startIndex ? 0f : v[startIndex + 1];
         }
 
-        /// <summary> Constructs a new vector with given IEnumerable values (superfluous values are ignored, missing values are zero-filled). </summary>
+        /// <summary>
+        /// Constructs a new vector with given IEnumerable values (superfluous values are ignored, missing values are zero-filled).
+        /// </summary>
         public Vector2(IEnumerable<float> v, int startIndex = 0) : this(v.ToArray(), startIndex) { }
 
-        /// <summary> Set x and y components of an existing Vector2. </summary>
+        /// <summary>
+        /// Set x and y components of an existing Vector2.
+        /// </summary>
         public void Set(float newX, float newY)
         {
             x = newX;
             y = newY;
         }
 
-        /// <summary> Makes this vector have a magnitude of 1. </summary>
+        /// <summary>
+        /// Makes this vector have a magnitude of 1.
+        /// </summary>
         public void Normalize()
         {
             if (magnitude > kEpsilon)
@@ -97,13 +131,17 @@ namespace NumDotNet
                 Set(0, 0);
         }
 
-        /// <summary> Returns true if the given vector is exactly equal to this vector. </summary>
+        /// <summary>
+        /// Returns true if the given vector is exactly equal to this vector.
+        /// </summary>
         public bool Equals(Vector2 other)
         {
             return (x == other.x) && (y == other.y);
         }
 
-        /// <summary> Returns true if the given object is exactly equal to this vector. </summary>
+        /// <summary>
+        /// Returns true if the given object is exactly equal to this vector.
+        /// </summary>
         public override bool Equals(Object obj)
         {
             //Check for null and compare run-time types.
@@ -127,50 +165,66 @@ namespace NumDotNet
             return ToString(null, CultureInfo.InvariantCulture.NumberFormat);
         }
 
-        /// <summary> Returns a formatted string for this vector. </summary>
+        /// <summary>
+        /// Returns a formatted string for this vector.
+        /// </summary>
         public string ToString(string format)
         {
             return ToString(format, CultureInfo.InvariantCulture.NumberFormat);
         }
 
-        /// <summary> Returns a formatted string for this vector. </summary>
+        /// <summary>
+        /// Returns a formatted string for this vector.
+        /// </summary>
         public string ToString(string format, IFormatProvider formatProvider)
         {
             return $"({x.ToString(format, formatProvider)}, {y.ToString(format, formatProvider)})";
         }
 
-        /// <summary> Returns an enumerator that iterates through all components. </summary>
+        /// <summary>
+        /// Returns an enumerator that iterates through all components.
+        /// </summary>
         public IEnumerator<float> GetEnumerator()
         {
             yield return x;
             yield return y;
         }
 
-        /// <summary> Returns an enumerator that iterates through all components. </summary>
+        /// <summary>
+        /// Returns an enumerator that iterates through all components.
+        /// </summary>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
-        /// <summary> Returns the distance between a and b. </summary>
+        /// <summary>
+        /// Returns the distance between a and b.
+        /// </summary>
         public static float Distance(Vector2 a, Vector2 b)
         {
             return (a - b).magnitude;
         }
 
-        /// <summary> Dot Product of two vectors. </summary>
+        /// <summary>
+        /// Dot Product of two vectors.
+        /// </summary>
         public static float Dot(Vector2 a, Vector2 b)
         {
             return a.x * b.x + a.y * b.y;
         }
 
-        /// <summary> Returns the unsigned angle in degrees between a and b. </summary>
+        /// <summary>
+        /// Returns the unsigned angle in degrees between a and b.
+        /// </summary>
         public static float Angle(Vector2 a, Vector2 b)
         {
             return (float)Math.Acos((a.x * b.x + a.y * b.y) / (a.magnitude * b.magnitude));
         }
 
-        /// <summary> Returns a copy of vector with its magnitude clamped to maxLength. </summary>
+        /// <summary>
+        /// Returns a copy of vector with its magnitude clamped to maxLength.
+        /// </summary>
         public static Vector2 ClampMagnitude(Vector2 vector, float maxLength)
         {
             float sqrMagnitude = vector.sqrMagnitude;
@@ -193,81 +247,156 @@ namespace NumDotNet
             return LerpUnclamped(a, b, t);
         }
 
-        /// <summary> Linearly interpolates between vectors a and b by t. </summary>
+        /// <summary>
+        /// Linearly interpolates between vectors a and b by t.
+        /// </summary>
         public static Vector2 LerpUnclamped(Vector2 a, Vector2 b, float t)
         {
             return new Vector2(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
         }
 
-        /// <summary> Returns a vector that is made from the largest components of two vectors. </summary>
+        /// <summary>
+        /// Returns a vector that is made from the largest components of two vectors.
+        /// </summary>
         public static Vector2 Max(Vector2 a, Vector2 b)
         {
             return new Vector2(Math.Max(a.x, b.x), Math.Max(a.y, b.y));
         }
 
-        /// <summary> Returns a vector that is made from the smallest components of two vectors. </summary>
+        /// <summary>
+        /// Returns a vector that is made from the smallest components of two vectors.
+        /// </summary>
         public static Vector2 Min(Vector2 a, Vector2 b)
         {
             return new Vector2(Math.Min(a.x, b.x), Math.Min(a.y, b.y));
         }
 
-        /// <summary> Multiplies two vectors component-wise. </summary>
+        /// <summary>
+        /// Multiplies two vectors component-wise.
+        /// </summary>
         public static Vector2 Scale(Vector2 a, Vector2 b)
         {
             return a * b;
         }
 
-        /// <summary> Shorthand for writing Vector2(0, 0). </summary>
+        /// <summary>
+        /// Shorthand for writing Vector2(0, 0).
+        /// </summary>
         public static Vector2 zero => new Vector2(0, 0);
-        /// <summary> Shorthand for writing Vector2(1, 1). </summary>
+
+        /// <summary>
+        /// Shorthand for writing Vector2(1, 1).
+        /// </summary>
         public static Vector2 one => new Vector2(1, 1);
 
-        /// <summary> Shorthand for writing Vector2(0, 1). </summary>
+        /// <summary>
+        /// Shorthand for writing Vector2(0, 1).
+        /// </summary>
         public static Vector2 up => new Vector2(0, 1);
-        /// <summary> Shorthand for writing Vector2(0, -1). </summary>
+
+        /// <summary>
+        /// Shorthand for writing Vector2(0, -1).
+        /// </summary>
         public static Vector2 down => new Vector2(0, -1);
-        /// <summary> Shorthand for writing Vector2(-1, 0). </summary>
+
+        /// <summary>
+        /// Shorthand for writing Vector2(-1, 0).
+        /// </summary>
         public static Vector2 left => new Vector2(-1, 0);
-        /// <summary> Shorthand for writing Vector2(1, 0). </summary>
+
+        /// <summary>
+        /// Shorthand for writing Vector2(1, 0).
+        /// </summary>
         public static Vector2 right => new Vector2(1, 0);
 
-        /// <summary> Shorthand for writing Vector2(float.NegativeInfinity, float.NegativeInfinity). </summary>
+        /// <summary>
+        /// Shorthand for writing Vector2(float.NegativeInfinity, float.NegativeInfinity).
+        /// </summary>
         public static Vector2 negativeInfinity => new Vector2(float.NegativeInfinity, float.PositiveInfinity);
-        /// <summary> Shorthand for writing Vector2(float.PositiveInfinity, float.PositiveInfinity). </summary>
+
+        /// <summary>
+        /// Shorthand for writing Vector2(float.PositiveInfinity, float.PositiveInfinity).
+        /// </summary>
         public static Vector2 positiveInfinity => new Vector2(float.PositiveInfinity, float.PositiveInfinity);
 
-        /// <summary> Adds two Vectors. </summary>
+        /// <summary>
+        /// Adds two Vectors.
+        /// </summary>
         public static Vector2 operator +(Vector2 a, Vector2 b) => new Vector2(a.x + b.x, a.y + b.y);
-        /// <summary> Returns a Vector. </summary>
+
+        /// <summary>
+        /// Returns a Vector.
+        /// </summary>
         public static Vector2 operator +(Vector2 a) => a;
-        /// <summary> Subtracts one vector from another. </summary>
+
+        /// <summary>
+        /// Subtracts one vector from another.
+        /// </summary>
         public static Vector2 operator -(Vector2 a, Vector2 b) => new Vector2(a.x - b.x, a.y - b.y);
-        /// <summary> Negates a Vector. </summary>
+
+        /// <summary>
+        /// Negates a Vector.
+        /// </summary>
         public static Vector2 operator -(Vector2 a) => new Vector2(-a.x, -a.y);
-        /// <summary> Multiplies a vector by a number. </summary>
+
+        /// <summary>
+        /// Multiplies a vector by a number.
+        /// </summary>
         public static Vector2 operator *(Vector2 a, float d) => new Vector2(a.x * d, a.y * d);
-        /// <summary> Multiplies a vector by a number. </summary>
+
+        /// <summary>
+        /// Multiplies a vector by a number.
+        /// </summary>
         public static Vector2 operator *(float d, Vector2 a) => new Vector2(a.x * d, a.y * d);
-        /// <summary> Multiplies a vector by another vector. </summary>
+
+        /// <summary>
+        /// Multiplies a vector by another vector.
+        /// </summary>
         public static Vector2 operator *(Vector2 a, Vector2 b) => new Vector2(a.x * b.x, a.y * b.y);
-        /// <summary> Divides a vector by a number. </summary>
+
+        /// <summary>
+        /// Divides a vector by a number.
+        /// </summary>
         public static Vector2 operator /(Vector2 a, float d) => d != 0 ? new Vector2(a.x / d, a.y / d) : throw new DivideByZeroException();
-        /// <summary> Divides a vector by another vector. </summary>
+
+        /// <summary>
+        /// Divides a vector by another vector.
+        /// </summary>
         public static Vector2 operator /(Vector2 a, Vector2 b) => b.x != 0 && b.y != 0 ? new Vector2(a.x / b.x, a.y / b.y) : throw new DivideByZeroException();
-        /// <summary> Returns the remainder of a vector divided by another vector. </summary>
+        
+        /// <summary>
+        /// Returns the remainder of a vector divided by another vector.
+        /// </summary>
         public static Vector2 operator %(Vector2 a, Vector2 b) => new Vector2(a.x % b.x, a.y % b.y);
-        /// <summary> Returns the remainder of a vector divided by a number. </summary>
+        
+        /// <summary>
+        /// Returns the remainder of a vector divided by a number.
+        /// </summary>
         public static Vector2 operator %(Vector2 a, float d) => new Vector2(a.x % d, a.y % d);
-        /// <summary> Returns true if two vectors are approximately equal. </summary>
+        
+        /// <summary>
+        /// Returns true if two vectors are approximately equal.
+        /// </summary>
         public static bool operator ==(Vector2 a, Vector2 b) => Math.Abs(a.x - b.x) <= kEpsilon && Math.Abs(a.y - b.y) <= kEpsilon;
-        /// <summary> Returns true if two vectors are not equal. </summary>
+        
+        /// <summary>
+        /// Returns true if two vectors are not equal.
+        /// </summary>
         public static bool operator !=(Vector2 a, Vector2 b) => !(a == b);
-        /// <summary> Converts a Vector3 to a Vector2. </summary>
+        
+        /// <summary>
+        /// Converts a Vector3 to a Vector2.
+        /// </summary>
         public static implicit operator Vector2(Vector3 v) => new Vector2(v.x, v.y);
-        /// <summary> Converts a Vector2 to a Vector3. </summary>
+
+        /// <summary>
+        /// Converts a Vector2 to a Vector3.
+        /// </summary>
         public static implicit operator Vector3(Vector2 v) => new Vector3(v.x, v.y, 0);
 
-        /// <summary> Converts a Vector2 to a float array (explicit). </summary>
+        /// <summary>
+        /// Converts a Vector2 to a float array (explicit).
+        /// </summary>
         public static explicit operator float[](Vector2 v) => new float[] { v.x, v.y };
     }
 }
