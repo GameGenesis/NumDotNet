@@ -107,15 +107,10 @@ namespace NumDotNet
         public override bool Equals(Object obj)
         {
             //Check for null and compare run-time types.
-            if ((obj == null) || !GetType().Equals(obj.GetType()))
-            {
+            if (obj == null || !GetType().Equals(obj.GetType()))
                 return false;
-            }
             else
-            {
-                Vector2 v = (Vector2)obj;
-                return Equals(v);
-            }
+                return Equals((Vector2)obj);
         }
 
         /// <summary>
