@@ -51,33 +51,34 @@ Representation of 2D vectors and points. Represents a vector with two single-pre
 |ToString    |  Returns a formatted string for this vector.                      |
 
 ### Static Methods
-|Property       |  Description                                                                   |
-|:--------------|:-------------------------------------------------------------------------------|
-|Angle          |  Returns the unsigned angle in degrees between a and b.                        |
-|ClampMagnitude |  Returns a copy of vector with its magnitude clamped to maxLength.             |
-|Distance       |  Returns the distance between a and b.                                         |
-|Dot            |  Dot Product of two vectors.                                                   |
-|-Lerp          |  Linearly interpolates between vectors a and b by t.                           |
-|-LerpUnclamped |  Linearly interpolates between vectors a and b by t.                           |
-|Max            |  Returns a vector that is made from the largest components of two vectors.     |
-|Min            |  Returns a vector that is made from the smallest components of two vectors.    |
-|-MoveTowards   |  Moves a point current towards target.                                         |
-|-Perpendicular |  Returns the 2D vector perpendicular to this 2D vector. The result is always rotated 90-degrees in a counter-clockwise direction for a 2D coordinate system where the positive Y axis goes up.                                          |
-|-Reflect       |  Reflects a vector off the vector defined by a normal.                         |
-|-Scale         |  Multiplies two vectors component-wise.                                        |
-|-SignedAngle   |  Returns the signed angle in degrees between from and to.                      |
-|-SmoothDamp    |  Gradually changes a vector towards a desired goal over time.                  |
+|Property       |  Description                                                                                   |
+|:--------------|:-----------------------------------------------------------------------------------------------|
+|Angle          |  Returns the unsigned angle in degrees between a and b.                                        |
+|ClampMagnitude |  Returns a copy of vector with its magnitude clamped to maxLength.                             |
+|Distance       |  Returns the distance between a and b.                                                         |
+|Dot            |  Dot Product of two vectors.                                                                   |
+|Lerp           |  Linearly interpolates between vectors a and b by t. The value of t is clamped between 0 and 1.|
+|LerpUnclamped  |  Linearly interpolates between vectors a and b by t.                                           |
+|Max            |  Returns a vector that is made from the largest components of two vectors.                     |
+|Min            |  Returns a vector that is made from the smallest components of two vectors.                    |
+|-MoveTowards   |  Moves a point current towards target.                                                         |
+|-Perpendicular |  Returns the 2D vector perpendicular to this 2D vector. The result is always rotated 90-degrees in a counter-clockwise direction for a 2D coordinate system where the positive Y axis goes up.                                                          |
+|-Reflect       |  Reflects a vector off the vector defined by a normal.                                         |
+|Scale          |  Multiplies two vectors component-wise.                                                        |
+|-SignedAngle   |  Returns the signed angle in degrees between from and to.                                      |
+|-SmoothDamp    |  Gradually changes a vector towards a desired goal over time.                                  |
 
 ### Operators
-|Property    |  Description                                               |
-|:-----------|:-----------------------------------------------------------|
-|operator -  |  Subtracts one vector from another.                        |
-|operator *  |  Multiplies a vector by a number.                          |
-|operator /  |  Divides a vector by a number.                             |
-|operator +  |  Adds two vectors.                                         |
-|operator == |  Returns true if two vectors are approximately equal.      |
-|Vector2     |  Converts a Vector3 to a Vector2.                          |
-|Vector3     |  Converts a Vector2 to a Vector3.                          |
+|Property    |  Description                                                                |
+|:-----------|:----------------------------------------------------------------------------|
+|operator +  |  Adds two vectors.                                                          |
+|operator -  |  Subtracts one vector from another.<br/>Negates a vector.                   |
+|operator *  |  Multiplies a vector by a number.<br/>Multiplies a vector by another vector.|
+|operator /  |  Divides a vector by a number.<br/>Divides a vector by another vector.      |
+|operator == |  Returns true if two vectors are approximately equal.                       |
+|operator != |  Returns true if two vectors are not equal.                                 |
+|Vector2     |  Converts a Vector3 to a Vector2.                                           |
+|Vector3     |  Converts a Vector2 to a Vector3.                                           |
 
 ## Vector3
 Representation of 3D vectors and points. Represents a vector with three single-precision floating-point values.
