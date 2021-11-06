@@ -19,12 +19,13 @@ Added Mathf Class with helper functions</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Users\Rayan\Dropbox\PC\Documents\Dev\Programming Projects\NumDotNet\config\</OutputPath>
+    <OutputPath>C:\Users\Rayan\Dropbox\PC\Documents\Dev\Programming Projects\NumDotNet\config\debug\</OutputPath>
     <DocumentationFile></DocumentationFile>
+    <WarningLevel>5</WarningLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\Users\Rayan\Dropbox\PC\Documents\Dev\Programming Projects\NumDotNet\NuGet\</OutputPath>
+    <OutputPath>C:\Users\Rayan\Dropbox\PC\Documents\Dev\Programming Projects\NumDotNet\config\release\</OutputPath>
     <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
