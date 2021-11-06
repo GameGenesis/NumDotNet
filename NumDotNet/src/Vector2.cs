@@ -44,7 +44,7 @@ namespace NumDotNet
             }
         }
 
-        /// <summary> Constructs a new vector with given x, y values. </summary>
+        /// <summary> Constructs a new vector with given x and y values. </summary>
         public Vector2(float x, float y)
         {
             this.x = x;
