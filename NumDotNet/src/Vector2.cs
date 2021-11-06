@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace NumDotNet
 {
@@ -71,6 +73,9 @@ namespace NumDotNet
             this.x = v.Length < 1 + startIndex ? 0f : v[startIndex];
             this.y = v.Length < 2 + startIndex ? 0f : v[startIndex + 1];
         }
+
+        /// <summary> Constructs a new vector with given IEnumerable values (superfluous values are ignored, missing values are zero-filled). </summary>
+        public Vector2(IEnumerable<float> v, int startIndex = 0) : this(v.ToArray(), startIndex) { }
 
         /// <summary> Set x and y components of an existing Vector2. </summary>
         public void Set(float newX, float newY)
