@@ -11,10 +11,14 @@ namespace NumDotNet
         /// </summary>
         public const float PI = 3.1415927f;
 
-        /// <summary> Radians-to-degrees conversion constant (Read Only). </summary>
+        /// <summary>
+        /// Radians-to-degrees conversion constant (Read Only).
+        /// </summary>
         public const float RadToDeg = 180f / PI;
 
-        /// <summary> Degrees-to-radians conversion constant (Read Only). </summary>
+        /// <summary>
+        /// Degrees-to-radians conversion constant (Read Only).
+        /// </summary>
         public const float DegToRad = PI  / 180f;
 
         /// <summary>
@@ -23,25 +27,33 @@ namespace NumDotNet
         /// </summary>
         public const float Epsilon = float.Epsilon;
 
-        /// <summary> Compares two floating point values and returns true if they are similar - within a small value (Epsilon) of each other. </summary>
+        /// <summary>
+        /// Compares two floating point values and returns true if they are similar - within a small value (Epsilon) of each other.
+        /// </summary>
         public static bool Approximately(float a, float b)
         {
             return Math.Abs(a - b) <= Math.Max(0.000001f * Math.Max(Math.Abs(a), Math.Abs(b)), Epsilon * 8);
         }
 
-        /// <summary> Returns the smallest integer greater to or equal to f. </summary>
+        /// <summary>
+        /// Returns the smallest integer greater to or equal to f.
+        /// </summary>
         public static int CeilingToInt(float f)
         {
             return (int)Math.Ceiling(f);
         }
 
-        /// <summary> Returns the largest integer smaller to or equal to f. </summary>
+        /// <summary>
+        /// Returns the largest integer smaller to or equal to f.
+        /// </summary>
         public static int FloorToInt(float f)
         {
             return (int)Math.Floor(f);
         }
 
-        /// <summary> Clamps value between 0 and 1 and returns value. </summary>
+        /// <summary>
+        /// Clamps value between 0 and 1 and returns value.
+        /// </summary>
         public static float Clamp01(float value)
         {
             if (value < 0f)
