@@ -41,12 +41,29 @@ namespace NumDotNet
         /// <summary>
         /// Returns the minimal component of this vector.
         /// </summary>
-        public double MinElement => Math.Min(x, y);
+        public float MinElement => Math.Min(x, y);
 
         /// <summary>
         /// Returns the maximal component of this vector.
         /// </summary>
-        public double MaxElement => Math.Max(x, y);
+        public float MaxElement => Math.Max(x, y);
+
+        /// <summary>
+        /// Returns the sum of the vector components.
+        /// </summary>
+        public float Sum => (x + y);
+
+        /// <summary>
+        /// Returns the one-norm of this vector.
+        /// </summary>
+        public float Norm1 => (Math.Abs(x) + Math.Abs(y));
+
+        /// <summary>
+        /// Returns the max-norm of this vector.
+        /// </summary>
+        public float NormMax => Math.Max(Math.Abs(x), Math.Abs(y));
+
+
 
         /// <summary>
         /// The smallest value that a float can have different from zero.
