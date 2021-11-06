@@ -34,32 +34,32 @@ namespace NumDotNet
         public Vector2 normalized => magnitude > Mathf.Epsilon ? new Vector2(x / magnitude, y / magnitude) : new Vector2(0, 0);
 
         /// <summary>
-        /// Returns the vector angle (atan2(y, x)) in radians.
+        /// Returns the vector angle in radians (Read Only).
         /// </summary>
         public float angle => MathF.Atan2(y, x);
 
         /// <summary>
-        /// Returns the one-norm of this vector.
+        /// Returns the one-norm of this vector (Read Only).
         /// </summary>
         public float norm1 => (Math.Abs(x) + Math.Abs(y));
 
         /// <summary>
-        /// Returns the max-norm of this vector.
+        /// Returns the max-norm of this vector (Read Only).
         /// </summary>
         public float normMax => Math.Max(Math.Abs(x), Math.Abs(y));
 
         /// <summary>
-        /// Returns the sum of the vector components.
+        /// Returns the sum of the vector components (Read Only).
         /// </summary>
         public float sum => (x + y);
 
         /// <summary>
-        /// Returns the minimal component of this vector.
+        /// Returns the minimal component of this vector (Read Only).
         /// </summary>
         public float minElement => Math.Min(x, y);
 
         /// <summary>
-        /// Returns the maximal component of this vector.
+        /// Returns the maximal component of this vector (Read Only).
         /// </summary>
         public float maxElement => Math.Max(x, y);
 
@@ -246,6 +246,14 @@ namespace NumDotNet
 
         /// <summary>
         /// Returns the unsigned angle in degrees between a and b.
+        /// </summary>
+        public static float AngleDeg(Vector2 a, Vector2 b)
+        {
+            return Angle(a, b) * Mathf.RadToDeg;
+        }
+
+        /// <summary>
+        /// Returns the unsigned angle in radians between a and b.
         /// </summary>
         public static float Angle(Vector2 a, Vector2 b)
         {
