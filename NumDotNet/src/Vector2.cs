@@ -144,17 +144,17 @@ namespace NumDotNet
             return $"({x.ToString(format, formatProvider)}, {y.ToString(format, formatProvider)})";
         }
 
-        /// <summary> Multiplies two vectors component-wise. </summary>
+        /// <summary> Returns an enumerator that iterates through all components. </summary>
         public IEnumerator<float> GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        /// <summary> Multiplies two vectors component-wise. </summary>
-        IEnumerator IEnumerable.GetEnumerator()
         {
             yield return x;
             yield return y;
+        }
+
+        /// <summary> Returns an enumerator that iterates through all components. </summary>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         /// <summary> Returns the distance between a and b. </summary>
