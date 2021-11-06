@@ -44,25 +44,32 @@ namespace NumDotNet
             }
         }
 
-        /// <summary> Constructs a new vector with given x and y values. </summary>
+        /// <summary> Constructs a new vector with given x, y values. </summary>
         public Vector2(float x, float y)
         {
             this.x = x;
             this.y = y;
         }
 
-        /// <summary> Constructs a new vector with given Vector2 values. </summary>
+        /// <summary> Constructs a new vector with given Vector2 x, y values. </summary>
         public Vector2(Vector2 v)
         {
             this.x = v.x;
             this.y = v.y;
         }
 
-        /// <summary> Constructs a new vector with given Vector3 [x and y] values. </summary>
+        /// <summary> Constructs a new vector with given Vector3 x, y values. </summary>
         public Vector2(Vector3 v)
         {
             this.x = v.x;
             this.y = v.y;
+        }
+
+        /// <summary> Constructs a new vector with given array values (superfluous values are ignored, missing values are zero-filled). </summary>
+        public Vector2(float[] v, int startIndex = 0)
+        {
+            this.x = v.Length < 1 + startIndex ? 0f : v[startIndex];
+            this.y = v.Length < 2 + startIndex ? 0f : v[startIndex + 1];
         }
 
         /// <summary> Set x and y components of an existing Vector2. </summary>
