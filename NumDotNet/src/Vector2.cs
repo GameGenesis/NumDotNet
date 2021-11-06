@@ -63,7 +63,10 @@ namespace NumDotNet
         /// </summary>
         public float NormMax => Math.Max(Math.Abs(x), Math.Abs(y));
 
-
+        /// <summary>
+        /// Returns the vector angle (atan2(y, x)) in radians.
+        /// </summary>
+        public float Angle => MathF.Atan2(y, x);
 
         /// <summary>
         /// The smallest value that a float can have different from zero.
