@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
 namespace NumDotNet
 {
-    public struct Vector2
+    public struct Vector2 : IReadOnlyList<float>, IEquatable<Vector2>, IFormattable
     {
         /// <summary> X component of the vector. </summary>
         public float x { get; set; }
@@ -18,6 +19,9 @@ namespace NumDotNet
         public float magnitude => (float)Math.Sqrt(sqrMagnitude);
         /// <summary> Returns this vector with a magnitude of 1 (Read Only). </summary>
         public Vector2 normalized => magnitude > Mathf.Epsilon ? new Vector2(x / magnitude, y / magnitude) : new Vector2(0, 0);
+
+        /// <summary> Returns the number of components in this vector (Read Only). </summary>
+        public int Count => 2;
 
         public const float kEpsilon = 0.00001f;
 
@@ -94,6 +98,12 @@ namespace NumDotNet
         }
 
         /// <summary> Returns true if the given vector is exactly equal to this vector. </summary>
+        public bool Equals(Vector2 other)
+        {
+            return (x == other.x) && (y == other.y);
+        }
+
+        /// <summary> Returns true if the given object is exactly equal to this vector. </summary>
         public override bool Equals(Object obj)
         {
             //Check for null and compare run-time types.
@@ -104,7 +114,7 @@ namespace NumDotNet
             else
             {
                 Vector2 v = (Vector2)obj;
-                return (x == v.x) && (y == v.y);
+                return Equals(v);
             }
         }
 
@@ -132,6 +142,19 @@ namespace NumDotNet
         public string ToString(string format, IFormatProvider formatProvider)
         {
             return $"({x.ToString(format, formatProvider)}, {y.ToString(format, formatProvider)})";
+        }
+
+        /// <summary> Multiplies two vectors component-wise. </summary>
+        public IEnumerator<float> GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        /// <summary> Multiplies two vectors component-wise. </summary>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            yield return x;
+            yield return y;
         }
 
         /// <summary> Returns the distance between a and b. </summary>
