@@ -39,6 +39,22 @@ namespace ConsoleTest
             Console.WriteLine(Mathf.Approximately(1.000001f, 10.0f / 10.0f));
             Console.WriteLine($"{Mathf.CeilingToInt(-10f)}, {Mathf.CeilingToInt(-10.7f)}, {Mathf.CeilingToInt(5f)}, {Mathf.CeilingToInt(5.3f)}");
 
+            float[] fl1 = new float[0];
+            float[] fl2 = new float[1] { 2 };
+            float[] fl3 = new float[3] { 2, 3, 4 };
+
+            Vector2 v3 = new Vector2(fl1);
+            Console.WriteLine(v3);
+
+            v3 = new Vector2(fl2);
+            Console.WriteLine(v3);
+
+            v3 = new Vector2(fl3, 1);
+            Console.WriteLine(v3);
+
+            v3 = new Vector2(fl3, 2);
+            Console.WriteLine(v3);
+
             Console.ReadKey();
         }
     }
