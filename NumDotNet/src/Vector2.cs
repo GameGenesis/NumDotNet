@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace NumDotNet
 {
-    public class Vector2
+    public struct Vector2
     {
         /// <summary> X component of the vector. </summary>
         public float x { get; set; }
@@ -44,14 +44,32 @@ namespace NumDotNet
             }
         }
 
-        /// <summary> Constructs a new vector with default Vector2(0, 0) points. </summary>
-        public Vector2() : this(0, 0) { }
-
-        /// <summary> Constructs a new vector with given x, y components. </summary>
+        /// <summary> Constructs a new vector with given x, y values. </summary>
         public Vector2(float x, float y)
         {
             this.x = x;
             this.y = y;
+        }
+
+        /// <summary> Constructs a new vector with the same x and y values. </summary>
+        public Vector2(float v)
+        {
+            this.x = v;
+            this.y = v;
+        }
+
+        /// <summary> Constructs a new vector from the given Vector2 x and y values. </summary>
+        public Vector2(Vector2 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+        }
+
+        /// <summary> Constructs a new vector from the given Vector3 x and y values. </summary>
+        public Vector2(Vector3 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
         }
 
         /// <summary> Set x and y components of an existing Vector2. </summary>
