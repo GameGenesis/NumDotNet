@@ -51,21 +51,14 @@ namespace NumDotNet
             this.y = y;
         }
 
-        /// <summary> Constructs a new vector with the same x and y values. </summary>
-        public Vector2(float v)
-        {
-            this.x = v;
-            this.y = v;
-        }
-
-        /// <summary> Constructs a new vector from the given Vector2 x and y values. </summary>
+        /// <summary> Constructs a new vector with given Vector2 values. </summary>
         public Vector2(Vector2 v)
         {
             this.x = v.x;
             this.y = v.y;
         }
 
-        /// <summary> Constructs a new vector from the given Vector3 x and y values. </summary>
+        /// <summary> Constructs a new vector with given Vector3 [x and y] values. </summary>
         public Vector2(Vector3 v)
         {
             this.x = v.x;
