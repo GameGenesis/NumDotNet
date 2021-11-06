@@ -26,7 +26,7 @@ namespace NumDotNet
         /// <summary>
         /// Returns the length of this vector (Read Only).
         /// </summary>
-        public float magnitude => (float)Math.Sqrt(sqrMagnitude);
+        public float magnitude => MathF.Sqrt(sqrMagnitude);
 
         /// <summary>
         /// Returns this vector with a magnitude of 1 (Read Only).
@@ -249,7 +249,7 @@ namespace NumDotNet
         /// </summary>
         public static float Angle(Vector2 a, Vector2 b)
         {
-            return (float)Math.Acos((a.x * b.x + a.y * b.y) / (a.magnitude * b.magnitude));
+            return MathF.Acos((a.x * b.x + a.y * b.y) / (a.magnitude * b.magnitude));
         }
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace NumDotNet
 
             if (sqrMagnitude > maxLength * maxLength)
             {
-                float magnitude = (float)Math.Sqrt(sqrMagnitude);
+                float magnitude = MathF.Sqrt(sqrMagnitude);
                 return new Vector2((vector.x / magnitude) * maxLength, (vector.y / magnitude) * maxLength);
             }
             return vector;
