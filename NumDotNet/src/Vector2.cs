@@ -39,6 +39,16 @@ namespace NumDotNet
         public int Count => 2;
 
         /// <summary>
+        /// Returns the minimal component of this vector.
+        /// </summary>
+        public double MinElement => Math.Min(x, y);
+
+        /// <summary>
+        /// Returns the maximal component of this vector.
+        /// </summary>
+        public double MaxElement => Math.Max(x, y);
+
+        /// <summary>
         /// The smallest value that a float can have different from zero.
         /// </summary>
         public const float kEpsilon = 0.00001f;
