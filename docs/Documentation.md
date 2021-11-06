@@ -11,6 +11,7 @@ A Point represents a fixed position, but a Vector represents a direction and a m
 
 ## Vector2
 ### Description
+Type: `struct`  
 Representation of 2D vectors and points. Represents a vector with two single-precision floating-point values.
 
 ### Static Properties
@@ -36,10 +37,9 @@ Representation of 2D vectors and points. Represents a vector with two single-pre
 |y               |  Y component of the vector.                                |
 
 ### Constructors
-|Property|  Description                                               |
-|:-------|:-----------------------------------------------------------|
-|Vector2 |  Constructs a new vector with given x, y components.       |
-|Vector2 |  Constructs a new vector with default Vector2(0, 0) points.|
+|Property|  Description                                                   |
+|:-------|:---------------------------------------------------------------|
+|Vector2 |  Constructs a new vector with given x, y values.<br/>Constructs a new vector with given Vector2 x, y values.<br/>Constructs a new vector with given Vector3 x, y values.<br/>Constructs a new vector with given array values<br/>(superfluous values are ignored, missing values are zero-filled).<br/>Constructs a new vector with given IEnumerable values<br/>(superfluous values are ignored, missing values are zero-filled).|
 
 ### Public Methods
 |Property    |  Description                                                      |
@@ -79,6 +79,7 @@ Representation of 2D vectors and points. Represents a vector with two single-pre
 |operator != |  Returns true if two vectors are not equal.                                 |
 |Vector2     |  Converts a Vector3 to a Vector2.                                           |
 |Vector3     |  Converts a Vector2 to a Vector3.                                           |
+|float[]     |  Converts a Vector2 to a float array (explicit).                            |
 
 ## Vector3
 Representation of 3D vectors and points. Represents a vector with three single-precision floating-point values.
