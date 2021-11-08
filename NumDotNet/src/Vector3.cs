@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace NumDotNet
 {
-    public struct Vector3 : IReadOnlyList<float>
+    public struct Vector3 : IReadOnlyList<float>, IEquatable<Vector3>
     {
         /// <summary>
         /// X component of the vector.
@@ -105,6 +105,26 @@ namespace NumDotNet
         /// Constructs a new vector with given IEnumerable values (superfluous values are ignored, missing values are zero-filled).
         /// </summary>
         public Vector3(IEnumerable<float> v, int startIndex = 0) : this(v.ToArray(), startIndex) { }
+
+        /// <summary>
+        /// Returns true if the given vector is exactly equal to this vector.
+        /// </summary>
+        public bool Equals(Vector3 other)
+        {
+            return (x == other.x) && (y == other.y) && (z == other.z);
+        }
+
+        /// <summary>
+        /// Returns true if the given object is exactly equal to this vector.
+        /// </summary>
+        public override bool Equals(Object obj)
+        {
+            //Check for null and compare run-time types.
+            if (obj == null || !GetType().Equals(obj.GetType()))
+                return false;
+            else
+                return Equals((Vector3)obj);
+        }
 
         /// <summary>
         /// Returns an enumerator that iterates through all components.
