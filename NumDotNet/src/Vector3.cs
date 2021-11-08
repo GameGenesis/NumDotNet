@@ -127,6 +127,15 @@ namespace NumDotNet
         }
 
         /// <summary>
+        /// Returns a hash code for the current object.
+        /// Allows a Vector3 to be used as a key in hash tables.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return x.GetHashCode() ^ (y.GetHashCode() << 2) ^ (z.GetHashCode() >> 2);
+        }
+
+        /// <summary>
         /// Returns an enumerator that iterates through all components.
         /// </summary>
         public IEnumerator<float> GetEnumerator()
