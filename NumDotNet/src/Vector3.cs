@@ -108,6 +108,16 @@ namespace NumDotNet
         public Vector3(IEnumerable<float> v, int startIndex = 0) : this(v.ToArray(), startIndex) { }
 
         /// <summary>
+        /// Set x, y and z components of an existing Vector3.
+        /// </summary>
+        public void Set(float newX, float newY, float newZ)
+        {
+            x = newX;
+            y = newY;
+            z = newZ;
+        }
+
+        /// <summary>
         /// Returns true if the given vector is exactly equal to this vector.
         /// </summary>
         public bool Equals(Vector3 other)
