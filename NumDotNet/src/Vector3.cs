@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace NumDotNet
 {
-    public struct Vector3
+    public struct Vector3 : IReadOnlyList<float>
     {
         /// <summary>
         /// X component of the vector.
@@ -20,6 +21,40 @@ namespace NumDotNet
         /// Z component of the vector.
         /// </summary>
         public float z { get; set; }
+
+        /// <summary>
+        /// Returns the number of components in this vector (Read Only).
+        /// </summary>
+        public int Count => 3;
+
+        /// <summary>
+        /// Access the x, y, z components using [0], [1], [2] respectively.
+        /// </summary>
+        public float this[int index]
+        {
+            get
+            {
+                switch (index)
+                {
+                    case 0: return x;
+                    case 1: return y;
+                    case 2: return z;
+                    default:
+                        throw new IndexOutOfRangeException("Invalid Vector2 index.");
+                }
+            }
+            set
+            {
+                switch (index)
+                {
+                    case 0: x = value; break;
+                    case 1: y = value; break;
+                    case 2: z = value; break;
+                    default:
+                        throw new IndexOutOfRangeException("Invalid Vector2 index.");
+                }
+            }
+        }
 
         /// <summary>
         /// Constructs a new vector with given x, y points.
@@ -70,6 +105,24 @@ namespace NumDotNet
         /// Constructs a new vector with given IEnumerable values (superfluous values are ignored, missing values are zero-filled).
         /// </summary>
         public Vector3(IEnumerable<float> v, int startIndex = 0) : this(v.ToArray(), startIndex) { }
+
+        /// <summary>
+        /// Returns an enumerator that iterates through all components.
+        /// </summary>
+        public IEnumerator<float> GetEnumerator()
+        {
+            yield return x;
+            yield return y;
+            yield return z;
+        }
+
+        /// <summary>
+        /// Returns an enumerator that iterates through all components.
+        /// </summary>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
         /// <summary>
         /// Shorthand for writing Vector3(0, 0, -1).
