@@ -24,6 +24,16 @@ namespace NumDotNet
         public float z { get; set; }
 
         /// <summary>
+        /// Returns the squared length of this vector (Read Only).
+        /// </summary>
+        public float sqrMagnitude => x * x + y * y + z * z;
+
+        /// <summary>
+        /// Returns the length of this vector (Read Only).
+        /// </summary>
+        public float magnitude => MathF.Sqrt(sqrMagnitude);
+
+        /// <summary>
         /// Returns the number of components in this vector (Read Only).
         /// </summary>
         public int Count => 3;
@@ -41,7 +51,7 @@ namespace NumDotNet
                     case 1: return y;
                     case 2: return z;
                     default:
-                        throw new IndexOutOfRangeException("Invalid Vector2 index.");
+                        throw new IndexOutOfRangeException("Invalid Vector3 index.");
                 }
             }
             set
@@ -52,7 +62,7 @@ namespace NumDotNet
                     case 1: y = value; break;
                     case 2: z = value; break;
                     default:
-                        throw new IndexOutOfRangeException("Invalid Vector2 index.");
+                        throw new IndexOutOfRangeException("Invalid Vector3 index.");
                 }
             }
         }
