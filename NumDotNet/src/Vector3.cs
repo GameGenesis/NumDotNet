@@ -262,6 +262,21 @@ namespace NumDotNet
         }
 
         /// <summary>
+        /// Returns a copy of vector with its magnitude clamped to maxLength.
+        /// </summary>
+        public static Vector3 ClampMagnitude(Vector3 vector, float maxLength)
+        {
+            float sqrMagnitude = vector.sqrMagnitude;
+
+            if (sqrMagnitude > maxLength * maxLength)
+            {
+                float magnitude = MathF.Sqrt(sqrMagnitude);
+                return new Vector3((vector.x / magnitude) * maxLength, (vector.y / magnitude) * maxLength, (vector.z / magnitude) * maxLength);
+            }
+            return vector;
+        }
+
+        /// <summary>
         /// Shorthand for writing Vector3(0, 0, -1).
         /// </summary>
         public static Vector3 back => new Vector3(0, 0, -1);
