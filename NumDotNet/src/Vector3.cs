@@ -346,5 +346,9 @@ namespace NumDotNet
         /// </summary>
         public static bool operator !=(Vector3 a, Vector3 b) => !(a == b);
 
+        /// <summary>
+        /// Converts a Vector2 to a float array (explicit).
+        /// </summary>
+        public static explicit operator float[](Vector3 v) => new float[] { v.x, v.y, v.z };
     }
 }
