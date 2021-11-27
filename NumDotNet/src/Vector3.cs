@@ -59,6 +59,11 @@ namespace NumDotNet
         public int Count => 3;
 
         /// <summary>
+        /// The smallest value that a float can have different from zero.
+        /// </summary>
+        public const float kEpsilon = 0.00001f;
+
+        /// <summary>
         /// Access the x, y, z components using [0], [1], [2] respectively.
         /// </summary>
         public float this[int index]
@@ -145,6 +150,17 @@ namespace NumDotNet
             x = newX;
             y = newY;
             z = newZ;
+        }
+
+        /// <summary>
+        /// Makes this vector have a magnitude of 1.
+        /// </summary>
+        public void Normalize()
+        {
+            if (magnitude > kEpsilon)
+                Set(x / magnitude, y / magnitude, z / magnitude);
+            else
+                Set(0, 0, 0);
         }
 
         /// <summary>
