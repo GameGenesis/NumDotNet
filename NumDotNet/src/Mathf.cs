@@ -75,9 +75,33 @@ namespace NumDotNet
         /// <summary>
         /// Returns the smallest of two or more values.
         /// </summary>
+        public static int Min(int a, int b)
+        {
+            return a < b ? a : b;
+        }
+
+        /// <summary>
+        /// Returns the smallest of two or more values.
+        /// </summary>
         public static float Min(params float[] values)
         {
             float min = values[0];
+
+            for (int i = 1; i < values.Length; i++)
+            {
+                if (values[i] < min)
+                    min = values[i];
+            }
+
+            return min;
+        }
+
+        /// <summary>
+        /// Returns the smallest of two or more values.
+        /// </summary>
+        public static int Min(params int[] values)
+        {
+            int min = values[0];
 
             for (int i = 1; i < values.Length; i++)
             {
