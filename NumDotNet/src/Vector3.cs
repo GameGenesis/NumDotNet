@@ -232,6 +232,36 @@ namespace NumDotNet
         }
 
         /// <summary>
+        /// Returns the distance between a and b.
+        /// </summary>
+        public static float Distance(Vector3 a, Vector3 b)
+        {
+            return (a - b).magnitude;
+        }
+
+        /// <summary>
+        /// Dot Product of two vectors.
+        /// </summary>
+        public static float Dot(Vector3 a, Vector3 b)
+        {
+            return a.x * b.x + a.y * b.y + a.z * b.z;
+        }
+
+        /// <summary>
+        /// Cross Product of two vectors.
+        /// The cross product of two vectors results in a third vector which is perpendicular to the two input vectors. The result's magnitude is equal to the magnitudes of the two inputs multiplied together and then multiplied by the sine of the angle between the inputs.
+        /// </summary>
+        public static Vector3 Cross(Vector3 a, Vector3 b)
+        {
+            Vector3 cross = new Vector3();
+            cross.x = a.y * b.z - a.z * b.y;
+            cross.y = a.z * b.x - a.x * b.z;
+            cross.z = a.x * b.y - a.y * b.x;
+
+            return cross;
+        }
+
+        /// <summary>
         /// Shorthand for writing Vector3(0, 0, -1).
         /// </summary>
         public static Vector3 back => new Vector3(0, 0, -1);
