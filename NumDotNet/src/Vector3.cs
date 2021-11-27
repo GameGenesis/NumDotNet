@@ -277,6 +277,22 @@ namespace NumDotNet
         }
 
         /// <summary>
+        /// Returns a vector that is made from the largest components of two vectors.
+        /// </summary>
+        public static Vector3 Max(Vector3 a, Vector3 b)
+        {
+            return new Vector3(Math.Max(a.x, b.x), Math.Max(a.y, b.y), Math.Max(a.z, b.z));
+        }
+
+        /// <summary>
+        /// Returns a vector that is made from the smallest components of two vectors.
+        /// </summary>
+        public static Vector3 Min(Vector3 a, Vector3 b)
+        {
+            return new Vector3(Math.Min(a.x, b.x), Math.Min(a.y, b.y), Math.Min(a.z, b.z));
+        }
+
+        /// <summary>
         /// Shorthand for writing Vector3(0, 0, -1).
         /// </summary>
         public static Vector3 back => new Vector3(0, 0, -1);
