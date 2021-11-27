@@ -34,6 +34,11 @@ namespace NumDotNet
         public float magnitude => MathF.Sqrt(sqrMagnitude);
 
         /// <summary>
+        /// Returns this vector with a magnitude of 1 (Read Only).
+        /// </summary>
+        public Vector3 normalized => magnitude > Mathf.Epsilon ? new Vector3(x / magnitude, y / magnitude, z / magnitude) : new Vector3(0, 0, 0);
+
+        /// <summary>
         /// Returns the number of components in this vector (Read Only).
         /// </summary>
         public int Count => 3;
