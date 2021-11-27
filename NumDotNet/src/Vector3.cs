@@ -281,5 +281,25 @@ namespace NumDotNet
         /// </summary>
         public static Vector3 positiveInfinity => new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
 
+        /// <summary>
+        /// Adds two Vectors.
+        /// </summary>
+        public static Vector3 operator +(Vector3 a, Vector3 b) => new Vector3(a.x + b.x, a.y + b.y, a.z + b.z);
+
+        /// <summary>
+        /// Returns a Vector.
+        /// </summary>
+        public static Vector3 operator +(Vector3 a) => a;
+
+        /// <summary>
+        /// Subtracts one vector from another.
+        /// </summary>
+        public static Vector3 operator -(Vector3 a, Vector3 b) => new Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
+
+        /// <summary>
+        /// Negates a Vector.
+        /// </summary>
+        public static Vector3 operator -(Vector3 a) => new Vector3(-a.x, -a.y, -a.z);
+
     }
 }
