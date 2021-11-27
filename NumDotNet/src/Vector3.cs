@@ -301,5 +301,20 @@ namespace NumDotNet
         /// </summary>
         public static Vector3 operator -(Vector3 a) => new Vector3(-a.x, -a.y, -a.z);
 
+        /// <summary>
+        /// Multiplies a vector by a number.
+        /// </summary>
+        public static Vector3 operator *(Vector3 a, float d) => new Vector3(a.x * d, a.y * d, a.z * d);
+
+        /// <summary>
+        /// Multiplies a vector by a number.
+        /// </summary>
+        public static Vector3 operator *(float d, Vector3 a) => new Vector3(a.x * d, a.y * d, a.z * d);
+
+        /// <summary>
+        /// Multiplies a vector by another vector.
+        /// </summary>
+        public static Vector3 operator *(Vector3 a, Vector3 b) => new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
+
     }
 }
