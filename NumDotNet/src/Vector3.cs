@@ -293,6 +293,14 @@ namespace NumDotNet
         }
 
         /// <summary>
+        /// Multiplies two vectors component-wise.
+        /// </summary>
+        public static Vector3 Scale(Vector3 a, Vector3 b)
+        {
+            return a * b;
+        }
+
+        /// <summary>
         /// Shorthand for writing Vector3(0, 0, -1).
         /// </summary>
         public static Vector3 back => new Vector3(0, 0, -1);
