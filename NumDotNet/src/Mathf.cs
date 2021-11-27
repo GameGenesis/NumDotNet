@@ -87,5 +87,29 @@ namespace NumDotNet
 
             return min;
         }
+
+        /// <summary>
+        /// Returns the largest of two or more values.
+        /// </summary>
+        public static float Max(float a, float b)
+        {
+            return a > b ? a : b;
+        }
+
+        /// <summary>
+        /// Returns the largest of two or more values.
+        /// </summary>
+        public static float Max(params float[] values)
+        {
+            float max = values[0];
+
+            for (int i = 1; i < values.Length; i++)
+            {
+                if (values[i] > max)
+                    max = values[i];
+            }
+
+            return max;
+        }
     }
 }
