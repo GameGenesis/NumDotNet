@@ -123,9 +123,33 @@ namespace NumDotNet
         /// <summary>
         /// Returns the largest of two or more values.
         /// </summary>
+        public static int Max(int a, int b)
+        {
+            return a > b ? a : b;
+        }
+
+        /// <summary>
+        /// Returns the largest of two or more values.
+        /// </summary>
         public static float Max(params float[] values)
         {
             float max = values[0];
+
+            for (int i = 1; i < values.Length; i++)
+            {
+                if (values[i] > max)
+                    max = values[i];
+            }
+
+            return max;
+        }
+
+        /// <summary>
+        /// Returns the largest of two or more values.
+        /// </summary>
+        public static int Max(params int[] values)
+        {
+            int max = values[0];
 
             for (int i = 1; i < values.Length; i++)
             {
