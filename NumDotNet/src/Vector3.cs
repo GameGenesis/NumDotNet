@@ -39,6 +39,21 @@ namespace NumDotNet
         public Vector3 normalized => magnitude > Mathf.Epsilon ? new Vector3(x / magnitude, y / magnitude, z / magnitude) : new Vector3(0, 0, 0);
 
         /// <summary>
+        /// Returns the sum of the vector components (Read Only).
+        /// </summary>
+        public float sum => (x + y + z);
+
+        /// <summary>
+        /// Returns the minimal component of this vector (Read Only).
+        /// </summary>
+        public float minElement => Mathf.Min(x, y, z);
+
+        /// <summary>
+        /// Returns the maximal component of this vector (Read Only).
+        /// </summary>
+        public float maxElement => Mathf.Max(x, y, z);
+
+        /// <summary>
         /// Returns the number of components in this vector (Read Only).
         /// </summary>
         public int Count => 3;
