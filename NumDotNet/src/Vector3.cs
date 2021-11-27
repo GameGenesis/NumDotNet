@@ -336,5 +336,15 @@ namespace NumDotNet
         /// </summary>
         public static Vector3 operator %(Vector3 a, float d) => new Vector3(a.x % d, a.y % d, a.z % d);
 
+        /// <summary>
+        /// Returns true if two vectors are approximately equal.
+        /// </summary>
+        public static bool operator ==(Vector3 a, Vector3 b) => Math.Abs(a.x - b.x) <= kEpsilon && Math.Abs(a.y - b.y) <= kEpsilon && Math.Abs(a.z - b.z) <= kEpsilon;
+
+        /// <summary>
+        /// Returns true if two vectors are not equal.
+        /// </summary>
+        public static bool operator !=(Vector3 a, Vector3 b) => !(a == b);
+
     }
 }
