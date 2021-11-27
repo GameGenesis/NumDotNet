@@ -316,5 +316,25 @@ namespace NumDotNet
         /// </summary>
         public static Vector3 operator *(Vector3 a, Vector3 b) => new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
 
+        /// <summary>
+        /// Divides a vector by a number.
+        /// </summary>
+        public static Vector3 operator /(Vector3 a, float d) => d != 0 ? new Vector3(a.x / d, a.y / d, a.z / d) : throw new DivideByZeroException();
+
+        /// <summary>
+        /// Divides a vector by another vector.
+        /// </summary>
+        public static Vector3 operator /(Vector3 a, Vector3 b) => b.x != 0 && b.y != 0 && b.z != 0 ? new Vector3(a.x / b.x, a.y / b.y, a.z / b.z) : throw new DivideByZeroException();
+
+        /// <summary>
+        /// Returns the remainder of a vector divided by another vector.
+        /// </summary>
+        public static Vector3 operator %(Vector3 a, Vector3 b) => new Vector3(a.x % b.x, a.y % b.y, a.z % b.z);
+
+        /// <summary>
+        /// Returns the remainder of a vector divided by a number.
+        /// </summary>
+        public static Vector3 operator %(Vector3 a, float d) => new Vector3(a.x % d, a.y % d, a.z % d);
+
     }
 }
